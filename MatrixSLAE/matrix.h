@@ -18,6 +18,8 @@ bool is_zero(double x);
 
 Matrix create_matrix(size_t n, size_t m);
 
+Matrix create_identity_matrix(size_t n);
+
 void free_matrix(Matrix* matrix);
 
 void read_matrix_from_file(Matrix* matrix, const char* file_name);
@@ -30,6 +32,10 @@ bool try_get_inversed_matrix(const Matrix* matrix, Matrix* result);
 
 Matrix multiply(const Matrix* a, const Matrix* b);
 
-Matrix substitute(const Matrix* a, const Matrix* b);
+Matrix subtract(const Matrix* a, const Matrix* b);
+
+double get_matrix_norm(const Matrix* a);
+
+double get_vector_norm(const Matrix* a);
 
 #endif

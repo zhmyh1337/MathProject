@@ -26,6 +26,19 @@ Matrix create_matrix(size_t n, size_t m)
 	return matrix;
 }
 
+Matrix create_identity_matrix(size_t n)
+{
+	Matrix matrix = create_matrix(n, n);
+	for (size_t i = 0; i < n; i++)
+	{
+		for (size_t j = 0; j < n; j++)
+		{
+			matrix.elements[i][j] = i == j ? 1.0 : 0.0;
+		}
+	}
+	return matrix;
+}
+
 void free_matrix(Matrix* matrix)
 {
 	for (size_t i = 0; i < matrix->n; i++)
@@ -150,7 +163,7 @@ Matrix multiply(const Matrix* a, const Matrix* b)
 		for (size_t j = 0; j < result.m; j++)
 		{
 			double sum = 0.0;
-			for (size_t k = 0; k < result.m; k++)
+			for (size_t k = 0; k < a->m; k++)
 			{
 				sum += a->elements[i][k] * b->elements[k][j];
 			}
@@ -160,7 +173,7 @@ Matrix multiply(const Matrix* a, const Matrix* b)
 	return result;
 }
 
-Matrix substitute(const Matrix* a, const Matrix* b)
+Matrix subtract(const Matrix* a, const Matrix* b)
 {
 	assert(a->n == b->n && a->m == b->m && "Matrices are not substitutable.");
 
@@ -173,4 +186,29 @@ Matrix substitute(const Matrix* a, const Matrix* b)
 		}
 	}
 	return result;
+}
+
+double get_matrix_norm(const Matrix* a)
+{
+	double res = 0;
+	for (size_t j = 0; j < a->m; j++)
+	{
+		double sum = 0;
+		for (size_t i = 0; i < a->n; i++)
+		{
+			sum += fabs(a->elements[i][j]);
+		}
+		res = max(res, sum);
+	}
+	return res;	
+}
+
+double get_vector_norm(const Matrix* a)
+{
+	double sum = 0.0;
+	for (size_t i = 0; i < a->n; i++)
+	{
+		sum += a->elements[i][0] * a->elements[i][0];
+	}
+	return sqrt(sum);
 }
