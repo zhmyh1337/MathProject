@@ -1,4 +1,4 @@
-#ifndef _SLAE
+﻿#ifndef _SLAE
 #define _SLAE
 
 #include "matrix.h"

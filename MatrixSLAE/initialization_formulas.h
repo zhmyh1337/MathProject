@@ -1,4 +1,4 @@
-#ifndef _INITIALIZATION_FORMULAS
+﻿#ifndef _INITIALIZATION_FORMULAS
 #define _INITIALIZATION_FORMULAS
 
 #include <stdlib.h>

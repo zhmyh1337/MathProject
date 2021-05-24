@@ -1,6 +1,6 @@
-#include "matrix_gaussian.h"
+п»ї#include "matrix_gaussian.h"
 
-// Метод Гаусса.
+// РњРµС‚РѕРґ Р“Р°СѓСЃСЃР°.
 void apply_gaussian(Matrix* matrix, bool only_left_side_columns_swapping)
 {
 	int i = 0, j = 0;

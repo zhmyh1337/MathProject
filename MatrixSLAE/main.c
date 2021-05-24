@@ -1,4 +1,4 @@
-#include "main.h"
+ï»¿#include "main.h"
 #include "matrix.h"
 #include "slae.h"
 #include <stdio.h>
@@ -38,11 +38,11 @@ static Matrix generate_b_vector(const Matrix* matrix, size_t n)
 static double get_answer_error_norm(const Matrix* answer)
 {
 	Matrix exact_solution = create_matrix(answer->n, 1);
-	Matrix subtracted_vector = subtract(answer, &exact_solution);
 	for (size_t i = 0; i < exact_solution.n; i++)
 	{
 		exact_solution.elements[i][0] = (i + 1) % 2;
 	}
+	Matrix subtracted_vector = subtract(answer, &exact_solution);
 	double result = get_vector_norm(&subtracted_vector);
 	free_matrix(&exact_solution);
 	free_matrix(&subtracted_vector);
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 	{
 		incorrect_parameters();
 	}
-	// Èìÿ ôàéëà íå ïðåäîñòàâëåíî.
+	// Ð˜Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð° Ð½Ðµ Ð¿Ñ€ÐµÐ´Ð¾ÑÑ‚Ð°Ð²Ð»ÐµÐ½Ð¾.
 	if (k == 0 && argc <= 4)
 	{
 		incorrect_parameters();
@@ -98,7 +98,7 @@ int main(int argc, char** argv)
 	clock_t finish_time = clock();
 
 	puts("");
-	printf("Elapsed time: %lf ms.", 1000.0 * (finish_time - start_time) / CLOCKS_PER_SEC);
+	printf("Elapsed time: %lf ms.\n", 1000.0 * (finish_time - start_time) / CLOCKS_PER_SEC);
 	free_matrix(&matrix);
 	free_matrix(&b_vector);
 	free_matrix(&answer);

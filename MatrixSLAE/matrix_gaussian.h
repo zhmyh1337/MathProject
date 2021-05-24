@@ -1,4 +1,4 @@
-#ifndef _MATRIX_GAUSSIAN
+﻿#ifndef _MATRIX_GAUSSIAN
 #define _MATRIX_GAUSSIAN
 
 #include "matrix.h"

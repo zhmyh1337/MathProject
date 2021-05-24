@@ -1,4 +1,4 @@
-#include "slae.h"
+﻿#include "slae.h"
 
 bool solve_slae(size_t m, const Matrix* matrix, const Matrix* b_vector, Matrix* answer)
 {
